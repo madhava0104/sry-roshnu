@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Roshni — With Respect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor-glow"></div>
+<div id="cursor-dot"></div>
+
+<!-- SOUND TOGGLE -->
+<button id="sound-toggle" aria-label="Toggle sound">
+  <svg id="sound-on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+  <svg id="sound-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+</button>
+
+<!-- LOADER -->
+<div id="loader">
+  <canvas id="loader-canvas"></canvas>
+  <div id="loader-content">
+    <div id="loader-heart">
+      <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+        <path id="heart-path" d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C38 5 47 11 50 20 C53 11 62 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z"/>
+      </svg>
+    </div>
+    <div id="loader-text">
+      <span id="typed-loader"></span>
+    </div>
+    <div id="loader-logo">M</div>
+    <div id="loader-bar-wrap"><div id="loader-bar"></div></div>
+  </div>
+  <div id="loader-particles"></div>
+</div>
+
+<!-- MAIN SITE -->
+<main id="main-site" style="opacity:0">
+
+  <!-- THREE.JS CANVAS BACKGROUND -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- FLOATING ELEMENTS LAYER -->
+  <div id="floating-layer"></div>
+
+  <!-- ========== SECTION 1: IF I HURT YOU ========== -->
+  <section id="section-hero" class="cinematic-section">
+    <div class="section-inner">
+      <p class="eyebrow fade-in-up" data-delay="0">A letter meant with care</p>
+      <h1 class="hero-title fade-in-up" data-delay="100">
+        <em>If I Hurt You</em>
+      </h1>
+      <p class="hero-sub fade-in-up" data-delay="200">Roshni,</p>
+      <p class="hero-body fade-in-up" data-delay="300">
+        Sometimes the people we never planned to meet become the people we never want to lose.
+        I don't know what happened. I don't know where things changed.
+        But I know I never wanted distance between us.
+      </p>
+      <div class="scroll-hint fade-in-up" data-delay="500">
+        <span>Read slowly</span>
+        <div class="scroll-line"></div>
+      </div>
+
+      <!-- REVEAL CTA -->
+      <button class="reveal-cta fade-in-up" data-delay="700" id="reveal-section-two">
+        There's something else I wanted to tell you <span class="cta-heart">❤️</span>
+      </button>
+    </div>
+    <div class="section-glow section-glow--left"></div>
+    <div class="section-glow section-glow--right"></div>
+  </section>
+
+  <!-- ========== SECTION 2: WHAT YOU MEAN TO ME ========== -->
+  <section id="section-two" class="cinematic-section section-locked">
+    <div class="section-inner">
+      <p class="eyebrow" data-aos="fade-up">What You Mean To Me</p>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+        Not every important<br/>relationship needs a label.
+      </h2>
+      <div class="memory-cards">
+        <div class="memory-card glass-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon">✦</div>
+          <p>"Some hearts simply understand each other, Roshnu — without explanation, without definition."</p>
+        </div>
+        <div class="memory-card glass-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon">◈</div>
+          <p>"More than friends. Something rare. Something I never wanted to be careless with."</p>
+        </div>
+        <div class="memory-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon">❋</div>
+          <p>"Your silence deserves respect. My feelings deserve honesty. Both can be true at once."</p>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE: PUNCH IT OUT -->
+      <div class="interactive-block" data-aos="fade-up" data-aos-delay="200">
+        <p class="interactive-eyebrow">If it still stings...</p>
+        <h3 class="interactive-title">Let it out.</h3>
+        <p class="interactive-sub">However many times you feel like hitting... go ahead.<br/>If it helps your heart feel a little lighter, I've earned every one.</p>
+        <button id="punch-btn" class="punch-btn">
+          <span class="punch-emoji">👊</span>
+          <span class="punch-word">Ouch</span>
+        </button>
+        <p id="punch-count" class="punch-count">×0</p>
+        <p id="punch-dynamic" class="punch-dynamic"></p>
+        <p class="punch-note">Don't hold it in.<br/>If you're still upset with me, let it out here.</p>
+
+        <!-- ENOUGH BUTTON -->
+        <button class="reveal-cta enough-btn" id="enough-btn" style="display:none">
+          Feeling a little better? <span class="cta-heart">❤️</span>
+        </button>
+      </div>
+    </div>
+    <div class="section-glow section-glow--center"></div>
+  </section>
+
+  <!-- ========== SECTION 3: THE TRUTH FROM MY HEART ========== -->
+  <section id="section-three" class="cinematic-section section-locked">
+    <div class="section-inner">
+      <p class="eyebrow" data-aos="fade-up">The Truth From My Heart</p>
+
+      <!-- TYPED LETTER -->
+      <div class="letter-card glass-card" data-aos="fade-up" data-aos-delay="100">
+        <p class="letter-label">A little letter...</p>
+        <h3 class="letter-title">From me, to you</h3>
+        <div class="letter-body">
+          <p>Dear Roshnu,</p>
+          <p id="letter-typed"></p>
+          <p class="letter-sign" id="letter-sign" style="opacity:0">— With respect, Maddy ❤️</p>
+        </div>
+      </div>
+
+      <!-- PROMISES JAR -->
+      <div class="jar-block" data-aos="fade-up" data-aos-delay="150">
+        <p class="interactive-eyebrow">From the jar of honest words...</p>
+        <h3 class="interactive-title">A promise you can keep</h3>
+        <div class="promise-card glass-card" id="promise-card">
+          <p id="promise-text">"I'll always listen first."</p>
+        </div>
+        <p class="promise-note">And I mean every single one.</p>
+        <div class="jar-btns">
+          <button class="btn-secondary" id="draw-promise">Draw another</button>
+        </div>
+
+        <!-- REVEAL CTA -->
+        <button class="reveal-cta jar-reveal-cta" id="reveal-section-four">
+          There's something I still want to ask... <span class="cta-heart">❤️</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SECTION 4: NO PRESSURE, ONLY RESPECT ========== -->
+  <section id="section-four" class="cinematic-section section-locked">
+    <div class="section-inner">
+      <p class="eyebrow" data-aos="fade-up">No Pressure. Only Respect.</p>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+        Some apologies aren't<br/>written because we are wrong.
+      </h2>
+      <p class="section-body" data-aos="fade-up" data-aos-delay="200">
+        They are written because the relationship matters.
+        I came here with a sorry, not with expectations.
+        No pressure. No guilt. No conditions.
+      </p>
+      <div class="respect-pillars" data-aos="fade-up" data-aos-delay="250">
+        <div class="pillar">
+          <span class="pillar-symbol">◯</span>
+          <p>No pressure</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-symbol">◯</span>
+          <p>No guilt</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-symbol">◯</span>
+          <p>No conditions</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-symbol">◯</span>
+          <p>Only respect</p>
+        </div>
+      </div>
+
+      <!-- PEACE BUTTON -->
+      <button id="peace-btn" class="peace-btn magnetic-btn" data-aos="fade-up" data-aos-delay="300">
+        Sending You Peace, Not Pressure ❤️
+      </button>
+
+      <!-- REVEAL CTA (shown after burst animation) -->
+      <button class="reveal-cta final-q-cta" id="reveal-finale" style="display:none">
+        One final question... <span class="cta-heart">❤️</span>
+      </button>
+    </div>
+    <div class="section-glow section-glow--left"></div>
+  </section>
+
+  <!-- ========== FINALE ========== -->
+  <section id="section-finale" class="cinematic-section finale-section section-locked">
+    <div class="section-inner finale-inner">
+      <div class="finale-quote" id="finale-quote">
+        <p class="finale-greeting">Take care, Roshnu.</p>
+        <p class="finale-body">
+          No matter where life takes us,<br/>
+          I will always be grateful that our paths once crossed.<br/><br/>
+          And if someday you wish to talk again,<br/>
+          you will find the same kindness here.
+        </p>
+        <p class="finale-sign">With respect,<br/><em>Maddy ❤️</em></p>
+      </div>
+
+      <!-- YES/NO GAME -->
+      <div id="sorry-question" class="sorry-question">
+        <p class="sq-eyebrow">One last thing, ma...</p>
+        <h3 class="sq-title">Will You Accept My Sorry?</h3>
+        <div class="sq-buttons">
+          <button id="yes-btn" class="sq-yes">Yes ❤️</button>
+          <button id="no-btn" class="sq-no">No ❤️</button>
+        </div>
+      </div>
+
+      <!-- YES RESPONSE -->
+      <div id="yes-response" class="yes-response" style="display:none">
+        <div class="yr-icon">🤍</div>
+        <h3>Thank you, Roshnu ❤️</h3>
+        <p>I didn't come here expecting anything.<br/>I only wanted you to know that my apology was real.<br/>That alone means more than you know.</p>
+        <p class="yr-small">With respect,<br/><em>Maddy ❤️</em></p>
+      </div>
+    </div>
+    <div class="section-glow section-glow--center"></div>
+  </section>
+
+</main>
+
+<!-- PARTICLE BURST LAYER -->
+<div id="burst-layer"></div>
+
+<!-- AUDIO -->
+<audio id="bg-music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d1718ab41b.mp3?filename=relaxing-145038.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<script src="script.js"></script>
+</body>
+</html>
