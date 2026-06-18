@@ -1,10 +1,10 @@
 /* =============================================
    ROSHNI — LUXURY CINEMATIC APOLOGY WEBSITE
-   Emerald · Antique Gold · Crimson · Luxury Black
+   Deep Red · Crimson · Rose Gold · Luxury Black
    ============================================= */
 
 :root {
-  --black:       #08100c;
+  --black:       #0a0608;
   --deep-red:    #6b0f1a;
   --crimson:     #9b1b30;
   --rose:        #c4455d;
@@ -12,22 +12,12 @@
   --rose-gold:   #c9956c;
   --rose-gold-l: #e8c4a8;
   --gold:        #d4a853;
-
-  /* Islamic-inspired emerald & antique gold accents */
-  --emerald:      #0f3d2e;
-  --emerald-l:    #1c5c45;
-  --emerald-glow: #2e8b6f;
-  --antique-gold: #c9a24b;
-  --antique-gold-l: #e6c878;
-  --lantern-glow: rgba(201,162,75,0.35);
-
   --cream:       #f5ede8;
   --white:       #fdf6f0;
   --glass-bg:    rgba(255,255,255,0.04);
-  --glass-border:rgba(201,162,75,0.22);
+  --glass-border:rgba(201,149,108,0.18);
   --glow-red:    rgba(155,27,48,0.35);
   --glow-rose:   rgba(196,69,93,0.25);
-  --glow-emerald:rgba(46,139,111,0.28);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,20 +34,6 @@ body {
   font-weight: 300;
   overflow-x: hidden;
   cursor: none;
-}
-
-/* =============================================
-   ISLAMIC GEOMETRIC PATTERN OVERLAY (global, subtle)
-   ============================================= */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23c9a24b' stroke-width='1'%3E%3Cpath d='M60 0 L90 30 L60 60 L30 30 Z'/%3E%3Cpath d='M60 60 L90 90 L60 120 L30 90 Z'/%3E%3Cpath d='M0 30 L30 60 L0 90 L-30 60 Z'/%3E%3Cpath d='M120 30 L150 60 L120 90 L90 60 Z'/%3E%3Ccircle cx='60' cy='60' r='14'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 120px 120px;
 }
 
 /* =============================================
@@ -283,9 +259,8 @@ body:has(button:hover) #cursor-glow {
   opacity: 0.18;
 }
 .section-glow--left  { left: -200px; top: 50%; transform: translateY(-50%); background: var(--crimson); }
-.section-glow--right { right: -200px; top: 50%; transform: translateY(-50%); background: var(--antique-gold); }
+.section-glow--right { right: -200px; top: 50%; transform: translateY(-50%); background: var(--rose-gold); }
 .section-glow--center{ left: 50%; top: 50%; transform: translate(-50%,-50%); background: var(--rose); }
-.section-glow--emerald{ left: 50%; top: 30%; transform: translate(-50%,-50%); background: var(--emerald-glow); }
 
 /* =============================================
    TYPOGRAPHY
@@ -385,17 +360,7 @@ body:has(button:hover) #cursor-glow {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 2rem 1.8rem;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(201,162,75,0.12);
-  position: relative;
-}
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 12px; left: 12px;
-  width: 18px; height: 18px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23c9a24b' fill-opacity='0.5' d='M20 2 L25 15 L38 20 L25 25 L20 38 L15 25 L2 20 L15 15 Z'/%3E%3C/svg%3E");
-  background-size: contain;
-  opacity: 0.6;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(201,149,108,0.1);
 }
 
 /* MEMORY CARDS */
